@@ -54,10 +54,6 @@ export const Login = (props: PaperProps) => {
     },
     validate: {
       email: (val) => (/^\S+@\S+$/.test(val) ? null : "Invalid email"),
-      password: (val) =>
-        val.length <= 6
-          ? "Password should include at least 6 characters"
-          : null,
     },
   });
 
@@ -65,6 +61,9 @@ export const Login = (props: PaperProps) => {
     setShowGenerateQrModal(false);
     setShowPinCodeModal(true);
   };
+
+  const isDisabled =
+    !form.values.email || !form.values.password || !!form.errors.email;
 
   return (
     <>
@@ -96,16 +95,18 @@ export const Login = (props: PaperProps) => {
                 onChange={(event) =>
                   form.setFieldValue("password", event.currentTarget.value)
                 }
-                error={
-                  form.errors.password &&
-                  "Password should include at least 6 characters"
-                }
                 radius="md"
               />
             </Stack>
 
             <Group justify="space-between" mt="xl">
-              <Button loading={isLoading} fullWidth type="submit" radius="xl">
+              <Button
+                disabled={isDisabled}
+                loading={isLoading}
+                fullWidth
+                type="submit"
+                radius="xl"
+              >
                 Sign in
               </Button>
             </Group>

@@ -111,7 +111,7 @@ export const TrustedDevices = () => {
             <Table.Tbody>{rows}</Table.Tbody>
           </Table>
 
-          <Flex justify="center">
+          <Flex justify="center" pb="xs">
             <Pagination
               mt="lg"
               total={data.page.totalPages}
