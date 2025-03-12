@@ -1,0 +1,19 @@
+.header {
+  height: 56px;
+  margin-bottom: 20px;
+  background-color: var(--mantine-color-body);
+  border-bottom: 1px solid
+    light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 199;
+}
+
+.inner {
+  height: 56px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
